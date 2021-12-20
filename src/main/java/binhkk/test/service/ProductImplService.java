@@ -17,12 +17,12 @@ public class ProductImplService implements IProductService {
 
     @Override
     public Optional<Product> findById(Long id) {
-        return Optional.empty();
+        return iProductRepository.findById(id);
     }
 
     @Override
     public void save(Product product) {
-
+iProductRepository.save(product);
     }
 
     @Override

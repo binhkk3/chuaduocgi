@@ -1,5 +1,4 @@
 package binhkk.test.config;
-import binhkk.test.service.IGenaralService;
 import binhkk.test.service.IProductService;
 import binhkk.test.service.ProductImplService;
 import org.springframework.beans.BeansException;
@@ -33,8 +32,8 @@ import java.util.Properties;
 @EnableWebMvc // đánh dấu dự án này hỗ trợ mô hình MVC
 @EnableTransactionManagement // đánh dấu dự án có hỗ trợ transaction
 @EnableJpaRepositories("binhkk.test.repository") // đánh dấu dự án có sử dụng jpa repository và đường dẫn
-@ComponentScan("binhkk.test")// cho Spring biết phải tìm controller ở đâu
-public class Appconfig implements WebMvcConfigurer, ApplicationContextAware {
+@ComponentScan("binhkk.test.controller")// cho Spring biết phải tìm controller ở đâu
+public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
 
     private ApplicationContext applicationContext; // khai báo 1 Spring Container
 
@@ -110,8 +109,8 @@ public class Appconfig implements WebMvcConfigurer, ApplicationContextAware {
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect"); // loại csdl là MySQL5
         return properties;
     }
-//    @Bean
-//    public IProductService productService(){
-//        return new ProductImplService();
-//    }
+    @Bean
+    public IProductService productService(){
+        return new ProductImplService();
+    }
 }
