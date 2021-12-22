@@ -10,6 +10,33 @@ public class Product {
     private String name;
     private int price;
     private int quantity;
+    private String img;
+
+    public Product(String name, int price, int quantity, String img, Customer customer) {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+        this.img = img;
+        this.customer = customer;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public Product(Long id, String name, int price, int quantity, String img, Customer customer) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+        this.img = img;
+        this.customer = customer;
+    }
+
     @ManyToOne
     @JoinColumn(name = "customerId")
     private Customer customer;

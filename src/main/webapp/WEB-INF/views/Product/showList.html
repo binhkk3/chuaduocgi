@@ -2,6 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 </head>
+<style>
+    .okok{
+        height: 50px;
+        width: 50px;
+    }
+</style>
 <body>
 <h3>Product</h3>
 <p>
@@ -13,6 +19,7 @@
 <table id = "product">
     <thead>
     <tr>
+        <th>anh</th>
         <th>Name</th>
         <th>price</th>
         <th>Quantity</th>
@@ -24,6 +31,7 @@
     </thead>
     <tbody>
     <tr th:each="row : ${products}">
+        <td><img th:src="@{'/binhkk/'+${row.getImg()}}" class="okok"  alt=""></td>
         <td th:text="${row.getName()}"></td>
         <td th:text="${row.getPrice()}"></td>
         <td th:text="${row.getQuantity()}"></td>
