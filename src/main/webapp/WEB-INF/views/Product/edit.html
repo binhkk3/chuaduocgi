@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/edit" method="post">
+    <input type="hidden" name="id" th:value="${product.getId()}">
+    <input type="text" name="name" th:value="${product.getName()}">
+    <input type="text" name="price" th:value="${product.getPrice()}">
+    <input type="text" name="quantity" th:value="${product.getQuantity()}">
+    <select name="customerId">
+        <option th:each="cus :${customer}" th:value="${cus.getId()}" th:text="${cus.getName()}" ></option>
+    </select>
+
+    <button> edit</button>
+</form>
+</body>
+</html>

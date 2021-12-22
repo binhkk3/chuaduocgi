@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h3>Add Customer</h3>
+<p>
+    <a th:href="@{/product}">
+        Back to product list
+    </a>
+</p>
+<form method="post">
+    <input type="hidden" name="id">
+    <input type="text" name="name">
+    <input type="text" name="price">
+    <input type="text" name="quantity">
+    <select name="customerId">
+        <option th:each="cus :${customer}" th:value="${cus.getId()}" th:text="${cus.getName()}" ></option>
+    </select>
+
+    <button>tạo</button>
+</form>
+
+</body>
+</html>

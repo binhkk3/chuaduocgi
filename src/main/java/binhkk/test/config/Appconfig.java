@@ -1,4 +1,6 @@
 package binhkk.test.config;
+import binhkk.test.service.CustomerImplService;
+import binhkk.test.service.ICustomerService;
 import binhkk.test.service.IProductService;
 import binhkk.test.service.ProductImplService;
 import org.springframework.beans.BeansException;
@@ -112,5 +114,9 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
     @Bean
     public IProductService productService(){
         return new ProductImplService();
+    }
+    @Bean
+    public ICustomerService customerService(){
+        return new CustomerImplService();
     }
 }
